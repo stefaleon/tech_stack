@@ -23,3 +23,37 @@ $ react native init tech_stack
 $  npm install --save redux react-redux
 
 ```
+
+
+&nbsp;
+## 01 Provider and createStore
+
+* Add the imports.
+
+```
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+```
+
+* Wrap the main view in the Provider tag. Provide a simple reducer.
+
+```
+export default class App extends Component<{}> {
+  render() {
+    const leReducer = () => [];
+
+    return (
+      <Provider store={createStore(leReducer)}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Added the Provider and provided leReducer
+          </Text>
+          <Text style={styles.instructions}>
+            All that in App.js
+          </Text>
+        </View>
+      </Provider>
+    );
+  }
+}
+```

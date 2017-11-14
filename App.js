@@ -7,21 +7,25 @@ import {
   Text,
   View
 } from 'react-native';
-
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 
 
 export default class App extends Component<{}> {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Gotto npm install redux and react
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
+    const leReducer = () => [];
 
-      </View>
+    return (
+      <Provider store={createStore(leReducer)}>
+        <View style={styles.container}>
+          <Text style={styles.welcome}>
+            Added the Provider and provided leReducer
+          </Text>
+          <Text style={styles.instructions}>
+            All that in App.js
+          </Text>
+        </View>
+      </Provider>
     );
   }
 }
