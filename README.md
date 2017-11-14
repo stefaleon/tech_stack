@@ -83,3 +83,19 @@ import reducers from './src/reducers/index.js';
 ```
     <Provider store={createStore(reducers)}>
 ```
+
+
+&nbsp;
+## 03 Header
+
+* Get a copy of the *./Components/common* folder from the [*auth*](https://github.com/stefaleon/Authentication-with-React-Native) app.
+
+* Import *Header* and use it in App.js.
+
+```
+import { Header } from './src/components/common';
+```
+
+```  
+    <Header headerText="Tech Stack" />
+```
