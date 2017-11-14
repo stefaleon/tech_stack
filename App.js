@@ -9,20 +9,19 @@ import {
 } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
+import reducers from './src/reducers/index.js';
 
 
 export default class App extends Component<{}> {
   render() {
-    const leReducer = () => [];
-
     return (
-      <Provider store={createStore(leReducer)}>
+      <Provider store={createStore(reducers)}>
         <View style={styles.container}>
           <Text style={styles.welcome}>
-            Added the Provider and provided leReducer
+            reducers are provided with combineReducers
           </Text>
           <Text style={styles.instructions}>
-            All that in App.js
+            from ./src/reducers/index.js
           </Text>
         </View>
       </Provider>

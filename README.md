@@ -57,3 +57,29 @@ export default class App extends Component<{}> {
   }
 }
 ```
+
+
+
+&nbsp;
+## 02 combineReducers
+
+* Create the *src* folder and the *reducers* folder inside *src*. Create *index.js* inside *reducers* and contain *leReducer* in it.
+
+*./src/reducers/index.js*
+```
+import { combineReducers } from 'redux';
+
+export default combineReducers({
+  leReducer: () => [];
+});
+```
+
+* In App.js, import reducers and provide them to the store.
+
+```
+import reducers from './src/reducers/index.js';
+```
+
+```
+    <Provider store={createStore(reducers)}>
+```
