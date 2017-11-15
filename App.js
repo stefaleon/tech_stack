@@ -19,10 +19,10 @@ export default class App extends Component<{}> {
         <View>
           <Header headerText="Tech Stack" />
           <Text style={styles.welcome}>
-            Now using prebuild common components.
+            Now using the LibraryReducer.
           </Text>
           <Text style={styles.instructions}>
-            from ./src/components/common
+            from ./src/reducers/LibraryReducer.js
           </Text>
         </View>
       </Provider>

@@ -99,3 +99,28 @@ import { Header } from './src/components/common';
 ```  
     <Header headerText="Tech Stack" />
 ```
+
+
+
+&nbsp;
+## 04 A list of *libraries*
+
+* In *./src/reducers* create *LibraryReducer.js*. It will be returning the list of *libraries* presented in the *Tech Stack* app.
+For the time being it returns an empty list.
+
+
+*./src/reducers/LibraryReducer.js*
+```
+export default () => [];
+```
+
+* Wire it up in *./src/reducers/index.js*. The demonstrative *leReducer* can be removed.
+
+```
+import { combineReducers } from 'redux';
+import LibraryReducer from './LibraryReducer';
+
+export default combineReducers({
+  libraries: LibraryReducer
+});
+```
