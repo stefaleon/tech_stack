@@ -138,3 +138,79 @@ import data from './LibraryList.json';
 
 export default () => data;
 ```
+
+
+&nbsp;
+## 06 Connect to the store
+
+* Create the *LibraryList.js* file inside the */src/components* folder. Connect to the Redux store and retrieve the *libraries* piece of state.  
+
+  * The react-redux *connect()* function takes *mapStateToProps* as an argument.
+
+  *  The return of *connect(mapStateToProps)* is also a function which takes *LibraryList* as its parameter. The result  is being exported by *LibraryList.js*
+
+  * The *mapStateToProps* function takes the *state* as its parameter and returns an object containing the *state.libraries*. These are passed to *LibraryList* as props.
+
+  * On the componentWillMount lifecycle method these props are passed to a ListView, via boilerplate code. Rows' changes are monitored and the ListView.DataSource is provided with appropriate data.
+
+  * Define the howToRenderRow method in order to instruct the ListView rergarding row rendering. Temporarily returns an empty list.
+
+
+*/src/components/LibraryList.js*
+```
+import React, { Component } from 'react';
+import { ListView } from 'react-native';
+import { connect } from 'react-redux';
+
+class LibraryList extends Component {
+  componentWillMount() {
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
+
+    this.dataSource = ds.cloneWithRows(this.props.libraries);
+  }
+
+  howToRenderRow() {
+    return [];
+  }
+
+  render() {
+    return(
+      <ListView
+        dataSource = {this.dataSource}
+        renderRow = {this.howToRenderRow}
+       />
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return { libraries: state.libraries };
+};
+
+export default connect(mapStateToProps)(LibraryList);
+```
+
+* In *App.js*
+
+```
+import LibraryList from './src/components/LibraryList';
+```
+```
+export default class App extends Component<{}> {
+  render() {
+    return (
+      <Provider store={createStore(reducers)}>
+        <View>
+          <Header headerText="Tech Stack" />
+          <LibraryList />
+          <Text style={styles.welcome}>
+            Get the Redux store to the React view!
+          </Text>
+        </View>
+      </Provider>
+    );
+  }
+}
+```

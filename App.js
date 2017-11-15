@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './src/reducers';
 import { Header } from './src/components/common';
+import LibraryList from './src/components/LibraryList';
 
 export default class App extends Component<{}> {
   render() {
@@ -18,11 +19,9 @@ export default class App extends Component<{}> {
       <Provider store={createStore(reducers)}>
         <View>
           <Header headerText="Tech Stack" />
+          <LibraryList />
           <Text style={styles.welcome}>
-            Now using the LibraryReducer.
-          </Text>
-          <Text style={styles.instructions}>
-            from ./src/reducers/LibraryReducer.js
+            Get the Redux store to the React view!
           </Text>
         </View>
       </Provider>
