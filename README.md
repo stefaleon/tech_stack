@@ -214,3 +214,38 @@ export default class App extends Component<{}> {
   }
 }
 ```
+
+
+&nbsp;
+## 07 Display the titles
+
+* Create the *ListItem.js* file inside the */src/components* folder. Add appropriate JSX code in order to display the title property of the JSON data object. Reuse the CardSection component from the common components.
+
+*/src/components/ListItem.js*
+```
+import React, { Component } from 'react';
+import { Text } from 'react-native';
+import { CardSection } from './common';
+
+export default class ListItem extends Component {
+  render() {
+    return (
+      <CardSection>
+        <Text>{this.props.library.title}</Text>        
+      </CardSection>
+    );
+  }
+}
+```
+
+* In *LibraryList.js* add the *library* parameter in *howToRenderRow()* and also pass it as a prop to the *ListItem*.
+
+```
+import ListItem from './ListItem';
+```
+
+```
+howToRenderRow(library) {
+  return <ListItem library={library}/>
+}
+```

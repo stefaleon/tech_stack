@@ -21,7 +21,7 @@ export default class App extends Component<{}> {
           <Header headerText="Tech Stack" />
           <LibraryList />
           <Text style={styles.welcome}>
-            Get the Redux store to the React view!
+            The Titles Are On!
           </Text>
         </View>
       </Provider>
