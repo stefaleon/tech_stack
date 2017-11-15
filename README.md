@@ -124,3 +124,17 @@ export default combineReducers({
   libraries: LibraryReducer
 });
 ```
+
+
+&nbsp;
+## 05 Add data
+
+* In *./src/reducers* create *LibraryList.json* which will contain the *libraries* data as a JSON object.
+
+* In *./src/reducers/LibraryReducer.js* import and export the data.
+
+```
+import data from './LibraryList.json';
+
+export default () => data;
+```
