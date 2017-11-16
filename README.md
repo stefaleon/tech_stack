@@ -249,3 +249,27 @@ howToRenderRow(library) {
   return <ListItem library={library}/>
 }
 ```
+
+
+&nbsp;
+## 08 Style and flex
+
+* Style the Text in ListItem.
+
+```
+<Text style={styles.titleStyle}>
+```
+```
+const styles = {
+  titleStyle: {
+    fontSize: 20,
+    paddingLeft: 15
+  }
+};
+```
+
+* Flex the View in App.
+
+```
+<View style={{ flex:1 }}>
+```
