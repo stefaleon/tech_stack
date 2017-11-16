@@ -273,3 +273,27 @@ const styles = {
 ```
 <View style={{ flex:1 }}>
 ```
+
+&nbsp;
+## 09 Reduce selections
+
+* In *./src/reducers* create *SelectionReducer.js*. Avoid undefined state in the beginning by setting initial state to null (implying that we have no specific library selected to begin with).
+
+*./src/reducers* create *SelectionReducer.js*
+```
+export default () => {
+  return null;  
+};
+```
+
+* Wire it up in *./src/reducers/index.js*. Import and attach it to the *selectedLibraryId* property inside combineReducers.
+
+```
+import SelectionReducer from './SelectionReducer';
+```
+```
+export default combineReducers({
+  libraries: LibraryReducer,
+  selectedLibraryId: SelectionReducer
+});
+```
