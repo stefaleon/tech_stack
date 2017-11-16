@@ -297,3 +297,18 @@ export default combineReducers({
   selectedLibraryId: SelectionReducer
 });
 ```
+
+&nbsp;
+## 10 Action creator
+
+* Create the *actions* folder and the *src/actions/index.js* file. It exports the action creator function *selectLibrary*, which returns the action with the *select_library* type. The *libraryId* argument passed to this action creator function, is being attached to the payload property of the returned action object.
+
+*src/actions/index.js*
+```
+export const selectLibrary = (libraryId) => {
+  return {
+    type: 'select_library',
+    payload: libraryId
+  };
+};
+```
