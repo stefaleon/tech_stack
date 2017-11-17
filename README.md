@@ -312,3 +312,24 @@ export const selectLibrary = (libraryId) => {
   };
 };
 ```
+
+&nbsp;
+## 11 Connect the actions
+
+* In ListItem.js import all actions as *actions*.
+
+```
+import * as actions from '../actions';
+```
+
+* Import the connect helper.
+
+```
+import { connect } from 'react-redux';
+```
+
+* Setup the connection. There is not mapStateToProps, so the first patrameter of connect() is null. The second parameter is the *actions* object.
+
+```
+export default connect(null, actions)(ListItem);
+```
