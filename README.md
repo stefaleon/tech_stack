@@ -335,7 +335,7 @@ export default connect(null, actions)(ListItem);
 ```
 
 &nbsp;
-## 12 Call the action creator
+## 12 Call selectLibrary
 
 * Now the action creator function *selectLibrary* is connected to the *ListItem* component and is available as props to be called when a touch event occurs. A touchable component is required in order to receive the touch event. Import TouchableWithoutFeedback, which is appropriate for this case. Also import the View object.
 
@@ -364,4 +364,19 @@ class ListItem extends Component {
     );
   }
 }
+```
+
+&nbsp;
+## 13 Return the action's payload
+
+* Edit SelectionReducer.js so that it returns the action's payload when the dispatched action comes from selectLibrary.
+```
+export default (state  =  null, action) => {
+  switch (action.type) {
+    case 'select_library':
+      return action.payload;
+    default:
+      return state;
+  }
+};
 ```

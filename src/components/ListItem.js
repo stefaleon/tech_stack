@@ -9,7 +9,6 @@ class ListItem extends Component {
     return (
       <TouchableWithoutFeedback
         onPress={() => this.props.selectLibrary(this.props.library.id)} 
-
       >
         <View>
           <CardSection>
