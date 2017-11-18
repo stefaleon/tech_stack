@@ -333,3 +333,35 @@ import { connect } from 'react-redux';
 ```
 export default connect(null, actions)(ListItem);
 ```
+
+&nbsp;
+## 12 Call the action creator
+
+* Now the action creator function *selectLibrary* is connected to the *ListItem* component and is available as props to be called when a touch event occurs. A touchable component is required in order to receive the touch event. Import TouchableWithoutFeedback, which is appropriate for this case. Also import the View object.
+
+```
+import { Text , TouchableWithoutFeedback, View} from 'react-native';
+```
+
+* Wrap the return in a TouchableWithoutFeedback block, and also internally to a View so that another CardSection can be added later. Call the *selectLibrary* action creator on the onPress event and pass it the particular current library's Id.
+
+```
+class ListItem extends Component {
+  render() {
+    return (
+      <TouchableWithoutFeedback
+        onPress={() => this.props.selectLibrary(this.props.library.id)}
+
+      >
+        <View>
+          <CardSection>
+            <Text style={styles.titleStyle}>
+              {this.props.library.title}
+            </Text>
+          </CardSection>
+        </View>
+      </TouchableWithoutFeedback>
+    );
+  }
+}
+```
