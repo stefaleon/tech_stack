@@ -351,7 +351,6 @@ class ListItem extends Component {
     return (
       <TouchableWithoutFeedback
         onPress={() => this.props.selectLibrary(this.props.library.id)}
-
       >
         <View>
           <CardSection>
@@ -367,7 +366,7 @@ class ListItem extends Component {
 ```
 
 &nbsp;
-## 13 Return the action's payload
+## 13 Return the selected library's Id
 
 * Edit SelectionReducer.js so that it returns the action's payload when the dispatched action comes from selectLibrary.
 ```
@@ -379,4 +378,39 @@ export default (state  =  null, action) => {
       return state;
   }
 };
+```
+
+&nbsp;
+## 14 Expand the selected row
+
+* In ListItem.js, map the state's selectedLibraryId item to the local props, by returning it from the mapStateToProps function which takes the state as its argument.
+
+```
+const mapStateToProps = state => {
+  return { selectedLibraryId: state.selectedLibraryId };
+};
+```
+
+* Pass mapStateToProps as the first argument to the connect handler.
+
+```
+export default connect(mapStateToProps, actions)(ListItem);
+```
+
+* If the current list item's id (which has been defined with the LibraryReducer) is the same as the selected id (provided by the SelectionReducer), then the renderDescription function returns the related description inside a Text tag.
+
+```
+renderDescription() {
+  if ( this.props.library.id === this.props.selectedLibraryId) {
+    return (
+      <Text>{this.props.library.description}</Text>
+    );
+  }
+}
+```
+
+* Display the result of renderDescription() inside the ListItem's render result.
+
+```
+{this.renderDescription()}
 ```
