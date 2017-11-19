@@ -414,3 +414,27 @@ renderDescription() {
 ```
 {this.renderDescription()}
 ```
+
+&nbsp;
+## 15 Refactor with ownProps
+
+* Use ownProps as the second argument of mapStateToProps(), in order to remove the selectedId matching the current list item's  Id related logic from the component. The *expanded* flag is returned to the component instead of the selectedLibraryId. 
+
+```
+const mapStateToProps = (state, ownProps) => {
+  const expanded = state.selectedLibraryId === ownProps.library.id;
+  return { expanded };
+};
+```
+
+* Now, the related description will be displayed if the passed to component's props expanded flag is true.
+
+```
+renderDescription() {
+  if ( this.props.expanded ) {
+    return (
+      <Text>{this.props.library.description}</Text>
+    );
+  }
+}
+```
